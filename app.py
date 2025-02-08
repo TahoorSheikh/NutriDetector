@@ -19,6 +19,7 @@ db = SQLAlchemy(app)
 class MyTask(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(100), nullable=False)
+    #ai_reply = db.Column(db.String(100))
     complete = db.Column(db.Integer, default=0)
     created = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -30,12 +31,13 @@ class MyTask(db.Model):
 # homepage
 @app.route("/",methods=["POST","GET"])
 def index():
-    responce = co.generate(model="command",prompt="What is the best way to study for an exam",max_tokens=50)
   
     # Add a task
     if request.method == "POST":
         current_task = request.form['content']
-        new_task = MyTask(content=current_task)
+        responce = co.generate(model="command",prompt=current_task,max_tokens=50)
+        ai_text = responce.generations[0].text.strip()
+        new_task = MyTask(content=f"Input: {current_task},\nOutput: {ai_text}")
         try:
             db.session.add(new_task)
             db.session.commit()

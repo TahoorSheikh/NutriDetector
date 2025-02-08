@@ -1,0 +1,1 @@
+COHERE_API_KEY = "NQt3Lu5EVQ33qGnigugFIhk6shTnFVfgGd1TwfcX"
