@@ -3,6 +3,10 @@ from flask import Flask, render_template, redirect, request
 from flask_scss import Scss
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import cohere
+from Tkey import COHERE_API_KEY
+
+co = cohere.Client(COHERE_API_KEY)
 
 # My App
 app = Flask(__name__)
@@ -26,6 +30,8 @@ class MyTask(db.Model):
 # homepage
 @app.route("/",methods=["POST","GET"])
 def index():
+    responce = co.generate(model="command",prompt="What is the best way to study for an exam",max_tokens=50)
+  
     # Add a task
     if request.method == "POST":
         current_task = request.form['content']
