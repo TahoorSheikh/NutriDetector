@@ -1,5 +1,5 @@
 # Imports
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request,url_for
 from flask_scss import Scss
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -49,7 +49,7 @@ def index():
     # See all current task
     else:
         tasks = MyTask.query.order_by(MyTask.created).all()
-        return render_template('landingpage.html', tasks=tasks)
+        return render_template('index.html', tasks=tasks)
 
 @app.route('/index', methods=['GET', 'POST'])
 def target_page():
