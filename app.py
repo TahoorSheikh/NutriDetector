@@ -32,9 +32,11 @@ def index():
     # Add a task
     if request.method == "POST":
         current_task = request.form["content"]
-        response = co.generate(
-            model="command", prompt=current_task, max_tokens=50
-        )
+
+        training_prompt = "You are a chat bot that is designed to help and assist users with healthy eating and workout plans"
+
+        response = co.generate(model="command", prompt=current_task + " " + training_prompt, max_tokens=50)
+
         ai_text = response.generations[0].text.strip()
         new_task = MyTask(content=f"Input: {current_task},\nOutput: {ai_text}")
         try:

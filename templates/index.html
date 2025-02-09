@@ -6,15 +6,15 @@
 
 {% block body %}  
 <div class="content">
-    <h1>Demo</h1>
+    <h1>NutriDetector chatbot(powered by cohere)</h1>
 
     {% if tasks |  length < 1%}
-    <h3>There are no tasks... MAKE ONE</h3>
+    <h3>Type in textbox for health advice!</h3>
     {% else %}
 
     <table>
         <tr>
-            <th>Task</th>
+            <th>Chat history</th>
             <th>Added</th>
             <th>Actions</th>
         </tr>
@@ -25,7 +25,6 @@
             <td>
                 <a href="/delete/{{task.id}}">Delete</a>
                 <br />
-                <a href="/update/{{task.id}}">Edit</a>
             </td>
         </tr>
         {% endfor %}
