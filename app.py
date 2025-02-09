@@ -3,16 +3,18 @@ from flask_scss import Scss
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import cohere
-from Tkey import COHERE_API_KEY
+from dotenv import load_dotenv
+import os
 
-co = cohere.Client(COHERE_API_KEY)
-
+load_dotenv()
 # My App
 app = Flask(__name__)
 Scss(app)
 
+app.config["API_KEY"] = os.getenv("API_KEY")
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 db = SQLAlchemy(app)
+co = cohere.Client(app.config["API_KEY"])
 
 # Data Class - row of data
 class MyTask(db.Model):
@@ -35,7 +37,7 @@ def index():
 
         training_prompt = "You are a chat bot that is designed to help and assist users with healthy eating and workout plans"
 
-        response = co.generate(model="command", prompt=current_task + " " + training_prompt, max_tokens=50)
+        response = co.generate(model="command", prompt=current_task + " " + training_prompt, max_tokens=100)
 
         ai_text = response.generations[0].text.strip()
         new_task = MyTask(content=f"Input: {current_task},\nOutput: {ai_text}")
