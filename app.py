@@ -58,6 +58,13 @@ def target_page():
         return render_template('index.html')  # Replace with your template
     return redirect(url_for('home'))  # Redirect if accessed via GET
 
+@app.route('/info_page', methods=['GET', 'POST'])
+def info_page():
+    return render_template('infoPage.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
 # Delete an item
 @app.route("/delete/<int:id>")

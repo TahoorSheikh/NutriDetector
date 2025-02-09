@@ -35,5 +35,10 @@
         <input type="text" name="content" if="content">
         <input type="submit" value="Add Task" id="btn_Add">
     </form>
+    <form action="{{ url_for('info_page') }}" method="GET">
+        <button type="submit" class="cta-btn">Info Page</button>
+    </form>
+    
+    
 </div>
 {% endblock %}
