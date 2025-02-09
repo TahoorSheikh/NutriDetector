@@ -1,4 +1,3 @@
-```markdown
 # NutriDetect: Revolutionizing Health & Nutrition with AI
 
 ## Overview
@@ -78,4 +77,3 @@ Our mission is to make health management **intuitive** and **accessible** to eve
 - **Zain Siddiqui**: zain.siddiqui@ontariotechu.net
 
 If you have any questions or suggestions, feel free to reach out!
-```
