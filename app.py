@@ -49,8 +49,16 @@ def index():
     # See all current task
     else:
         tasks = MyTask.query.order_by(MyTask.created).all()
-        return render_template('index.html', tasks=tasks)
-    
+        return render_template('landingpage.html', tasks=tasks)
+
+@app.route('/index', methods=['GET', 'POST'])
+def target_page():
+    if request.method == 'POST':
+        # Handle the button action here
+        return render_template('index.html')  # Replace with your template
+    return redirect(url_for('home'))  # Redirect if accessed via GET
+
+
 # Delete an item
 @app.route("/delete/<int:id>")
 def delete(id:int):

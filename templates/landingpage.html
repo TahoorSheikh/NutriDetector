@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Landing Page</title>
+<!-- Add any additional stylesheets or scripts specific to the landing page -->
+{% endblock %}
+
+{% block body %}
+<div class="window">
+    <!-- Header Section -->
+    <header>
+        <h1 id="NutriDetect-logo"><span>Nutri</span>Detect</h1>
+    </header>
+
+    <!-- Landing Section -->
+<section class="landing-window">
+    <div class="landing-title">
+        <h1>Optimize Health<br>with Real Time <br><span>AI Insights</span></h1>
+        <p>Track your health, detect deficiencies, and<br>receive tailored recommendations, all effortlessly.</p>
+        <form action="{{ url_for('target_page') }}" method="POST">
+            <button type="submit" class="cta-btn">Sign Up with Google</button>
+        </form>
+        
+    </div>
+    <div class="circles-container">
+        <div class="circle" style="left: 10%; animation-duration: 12s;"></div>
+        <div class="circle" style="left: 30%; animation-duration: 15s;"></div>
+        <div class="circle" style="left: 50%; animation-duration: 10s;"></div>
+        <div class="circle" style="left: 70%; animation-duration: 18s;"></div>
+        <div class="circle" style="left: 90%; animation-duration: 8s;"></div>
+    </div>
+</section>
+
+
+    <!-- Overview Section -->
+    <section id="overview" class="info-scrollpage">
+        <div class="overview-content">
+            <h2>OVERVIEW</h2>
+            <p>
+                NutriDetect is a cutting-edge, AI-powered health companion designed to
+                help individuals optimize their wellness. By integrating data from wearable
+                devices and nutritional tracking, NutriDetect identifies potential deficiencies
+                and provides personalized recommendations for improved health.
+            </p>
+            <p>
+                With NutriDetect, staying on top of your health is easier than ever. Whether
+                it's tracking key nutrients, analyzing sleep patterns, or monitoring activity
+                levels, NutriDetect ensures that you have the insights you need to thrive.
+            </p>
+        </div>
+    </section>
+</div>
+{% endblock %}
