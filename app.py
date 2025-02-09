@@ -6,11 +6,13 @@ import cohere
 from dotenv import load_dotenv
 import os
 
+# Load .env file that contains API key
 load_dotenv()
 # My App
 app = Flask(__name__)
 Scss(app)
 
+# Obtain API key
 app.config["API_KEY"] = os.getenv("API_KEY")
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 db = SQLAlchemy(app)
@@ -28,7 +30,6 @@ class MyTask(db.Model):
 
 
 # Routes to Webpages
-
 @app.route("/", methods=["POST", "GET"])
 def index():
     # Add a task
@@ -77,4 +78,4 @@ def delete(id: int):
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=8000,debug=True)
