@@ -1,44 +1,54 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='indexStyle.css') }}">
+    <title>NutriDetector</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <form action="{{ url_for('info_page') }}" method="GET">
+            <button type="submit" class="info-btn">Info Page</button>
+        </form>
+    </header>
 
-{% block head %}  
-<title>NutriDetector</title>
-{% endblock %}
+    <!-- Main Content Section -->
+    <section class="main-window">
+        <!-- Welcome Heading -->
+        <h1 class="welcome-heading">
+            Welcome to <span>NutriDetector!</span>
+        </h1>
+        <p id="powered-by-cohere">Powered by Cohere. </p>
 
-{% block body %}  
-<div class="content">
-    <h1>NutriDetector chatbot(powered by cohere)</h1>
+        <!-- Input Form -->
+        <form action="/" method="POST" class="input-form">
+            <input
+                type="text"
+                name="content"
+                placeholder="Type here..."
+                class="text-input"
+            >
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
 
-    {% if tasks |  length < 1%}
-    <h3>Type in textbox for health advice!</h3>
-    {% else %}
 
-    <table>
-        <tr>
-            <th>Chat history</th>
-            <th>Added</th>
-            <th>Actions</th>
-        </tr>
-        {% for task in tasks %}
-        <tr>
-            <td>{{task.content}}</td>
-            <td>{{task.created.strftime("%y-%m-%d")}}</td>
-            <td>
-                <a href="/delete/{{task.id}}">Delete</a>
-                <br />
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
-    <form action="/" method="POST">
-        <input type="text" name="content" if="content">
-        <input type="submit" value="Add Task" id="btn_Add">
-    </form>
-    <form action="{{ url_for('info_page') }}" method="GET">
-        <button type="submit" class="cta-btn">Info Page</button>
-    </form>
-    
-    
-    
-</div>
-{% endblock %}
+        <!-- Chat History -->
+        {% if tasks | length > 0 %}
+        <div class="chat-history-wrapper">
+            <h2 class="chat-title">Chat History</h2>
+            <div class="chat-messages">
+                {% for task in tasks %}
+                <div class="chat-message">
+                    <p>{{ task.content }}</p>
+                    <span class="chat-date">{{ task.created.strftime('%y-%m-%d') }}</span>
+                    <a href="/delete/{{ task.id }}" class="delete-link">Delete</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </section>
+</body>
+</html>

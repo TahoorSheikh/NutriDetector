@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/*------------------------------*/
+/*           Body Styling       */
+/*------------------------------*/
 body {
   background: linear-gradient(90deg, #99A6D5 0%, #5B75FE 100%);
   width: 100vw;
@@ -11,7 +14,7 @@ body {
   font-family: 'Urbanist', sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
 }
 
 /*------------------------------*/
@@ -20,30 +23,29 @@ body {
 header {
   width: 100%;
   background: linear-gradient(
-  to right, /* Direction of the gradient */
-  rgba(133, 157, 189, 0.69) 0%, 
-  rgba(133, 157, 189, 0.17) 15%, 
-  rgba(133, 157, 189, 0.19) 32%, 
-  rgba(133, 157, 189, 0.26) 75%, 
-  rgba(133, 157, 189, 1) 100%  
-);
-
-  position: fixed; /* Keep the header fixed at the top */
+    to right,
+    rgba(133, 157, 189, 0.69) 0%,
+    rgba(133, 157, 189, 0.17) 15%,
+    rgba(133, 157, 189, 0.19) 32%,
+    rgba(133, 157, 189, 0.26) 75%,
+    rgba(133, 157, 189, 1) 100%
+  );
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 10; /* Ensure the header is above other elements */
-  padding: 0.5rem 2rem; /* Padding for spacing */
+  z-index: 10;
+  padding: 0.5rem 2rem;
   background-color: #081225;
   box-sizing: border-box;
 }
 
 header nav {
   display: flex;
-  justify-content: space-between; /* Space between logo and links */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px; /* Optional: Limit max width */
-  margin: 0 auto; /* Center the nav container */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 #NutriDetect-logo {
@@ -53,9 +55,8 @@ header nav {
   color: white;
   text-align: center;
   margin: 0;
-  flex-shrink: 0; /* Prevent shrinking of the logo */
+  flex-shrink: 0;
 }
-
 
 #NutriDetect-logo span {
   background: linear-gradient(90deg, #FFFFFF 0%, #daffe0 80%);
@@ -63,7 +64,6 @@ header nav {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 
 /*------------------------------*/
 /*        Landing Window        */
@@ -73,13 +73,14 @@ header nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 85vh; /* Adjusted height for better viewport fit */
+  height: 85vh;
   text-align: center;
-  margin-top: 4rem; /* Account for fixed header height */
-  padding: 0 1rem; /* Add padding to prevent overflow */
-  box-sizing: border-box; /* Ensure padding doesn't affect element size */
+  margin-top: 4rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
   width: 100%;
 }
+
 .landing-title h1 {
   font-size: 4rem;
   color: white;
@@ -100,12 +101,11 @@ header nav {
 .landing-title p {
   font-size: 1.25rem;
   color: white;
-  margin: 1rem auto 2rem; /* Center horizontally */
+  margin: 1rem auto 2rem;
   text-align: center;
-  padding: 0; /* Remove extra padding */
-  max-width: 600px; /* Restrict width */
+  padding: 0;
+  max-width: 600px;
 }
-
 
 .cta-btn {
   background-color: #FFFFFF;
@@ -136,15 +136,15 @@ header nav {
 
 @keyframes rise {
   0% {
-      transform: translateY(0);
-      opacity: 0.5;
+    transform: translateY(0);
+    opacity: 0.5;
   }
   50% {
-      opacity: 0.4;
+    opacity: 0.4;
   }
   100% {
-      transform: translateY(-120vh);
-      opacity: 0;
+    transform: translateY(-120vh);
+    opacity: 0;
   }
 }
 
@@ -156,15 +156,15 @@ header nav {
   height: 100%;
   overflow: hidden;
   pointer-events: none;
-  z-index: 1; /* Lower z-index to place behind the black section */
+  z-index: 1;
 }
 
 /*------------------------------*/
 /*        Info Scrollpage       */
 /*------------------------------*/
 .info-scrollpage {
-  position: relative; /* Ensure z-index works */
-  z-index: 2; /* Higher z-index to overlap circles */
+  position: relative;
+  z-index: 2;
   width: 100%;
   padding: 6rem 2rem;
   background-color: #081225;
@@ -195,7 +195,9 @@ header nav {
   padding: 0 1rem;
 }
 
-/* Responsive Design */
+/*------------------------------*/
+/*       Responsive Design      */
+/*------------------------------*/
 @media (max-width: 768px) {
   header nav {
     flex-direction: column;

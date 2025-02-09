@@ -1,0 +1,161 @@
+/*------------------------------*/
+/*          Import Fonts        */
+/*------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*------------------------------*/
+/*           Body Styling       */
+/*------------------------------*/
+body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: 'Urbanist', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*------------------------------*/
+/*        Header Styling        */
+/*------------------------------*/
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: #1e293b;
+}
+
+.info-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.info-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/*------------------------------*/
+/*       Main Section Styling   */
+/*------------------------------*/
+.main-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/*------------------------------*/
+/*         Welcome Text         */
+/*------------------------------*/
+.welcome-heading {
+    font-size: 32px;
+    margin: 10px 0;
+    color: #60a5fa;
+}
+
+.welcome-heading span {
+    color: #a78bfa;
+}
+
+#powered-by-cohere {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0;
+}
+/*------------------------------*/
+/*       Input Form Styling     */
+/*------------------------------*/
+.input-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.text-input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #3b82f6;
+    background-color: #1e293b;
+    color: #e2e8f0;
+    font-size: 16px;
+}
+
+.text-input::placeholder {
+    color: #64748b;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/*------------------------------*/
+/*         Chat History         */
+/*------------------------------*/
+.chat-history-wrapper {
+    width: 80%;
+    max-width: 800px;
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #3b82f6;
+    margin-top: 20px;
+}
+
+.chat-title {
+    color: #60a5fa;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-message {
+    background-color: #334155;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: 10px;
+}
+
+.delete-link {
+    color: #f87171;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.delete-link:hover {
+    color: #ef4444;
+}
